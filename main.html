@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #triangle {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 87px solid red; /* You can change the color and dimensions as needed */
+      position: absolute;
+    }
+  </style>
+  <title>Triangle Movement</title>
+</head>
+<body>
+  <div id="triangle"></div>
+  <script>
+    // JavaScript for moving the triangle
+    const triangle = document.getElementById('triangle');
+    let posX = 0;
+    let posY = 0;
+
+    function moveTriangle() {
+      triangle.style.left = posX + 'px';
+      triangle.style.top = posY + 'px';
+    }
+
+    document.addEventListener('keydown', (event) => {
+      const step = 10;
+
+      switch (event.key) {
+        case 'ArrowUp':
+          posY -= step;
+          break;
+        case 'ArrowDown':
+          posY += step;
+          break;
+        case 'ArrowLeft':
+          posX -= step;
+          break;
+        case 'ArrowRight':
+          posX += step;
+          break;
+      }
+
+      moveTriangle();
+    });
+
+    moveTriangle(); // Initial positioning
+  </script>
+</body>
+</html>
